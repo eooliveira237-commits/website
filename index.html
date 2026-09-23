@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Você</title>
+<style>
+    #botao-musica{
+  margin-top:30px;
+  background:var(--rosa-escuro);
+  border:none;
+  color:#fff;
+  font-family:'Quicksand', sans-serif;
+  font-weight:600;
+  font-size:0.95rem;
+  padding:14px 26px;
+  border-radius:30px;
+  cursor:pointer;
+  box-shadow:0 10px 24px rgba(122,59,78,0.2);
+  transition:transform .2s ease, background .2s ease;
+}
+#botao-musica:hover{ transform:scale(1.05); background:var(--vinho); }
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Quicksand:wght@400;500;600;700&display=swap');
+
+  :root{
+    --rosa-claro:#fbeaec;
+    --rosa-medio:#f2b8c6;
+    --rosa-escuro:#d97a94;
+    --vinho:#7a3b4e;
+    --creme:#fff8f5;
+    --texto:#5c3a42;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    font-family:'Quicksand', sans-serif;
+    background: linear-gradient(180deg, var(--rosa-claro) 0%, var(--creme) 40%, var(--creme) 100%);
+    color:var(--texto);
+    overflow-x:hidden;
+  }
+
+  /* pétalas caindo */
+  .petala{
+    position:fixed;
+    top:-5%;
+    font-size:20px;
+    opacity:0.7;
+    animation:cair linear infinite;
+    pointer-events:none;
+    z-index:0;
+  }
+  @keyframes cair{
+    to{ transform:translateY(110vh) rotate(360deg); }
+  }
+
+  header{
+    min-height:70vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+    position:relative;
+  }
+
+  .eyebrow{
+    font-size:15px;
+    letter-spacing:0.5px;
+    color:var(--rosa-escuro);
+    margin-bottom:14px;
+  }
+
+  h1{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:clamp(2.4rem, 6vw, 4.2rem);
+    color:var(--vinho);
+    line-height:1.15;
+    max-width:700px;
+  }
+
+  h1 em{
+    font-style:italic;
+    color:var(--rosa-escuro);
+  }
+
+  .sub{
+    margin-top:22px;
+    font-size:1.1rem;
+    max-width:480px;
+    line-height:1.6;
+  }
+
+  .coracao-central{
+    font-size:2.2rem;
+    margin-top:28px;
+    animation:pulsar 1.8s ease-in-out infinite;
+  }
+  @keyframes pulsar{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+  }
+
+  section{
+    max-width:760px;
+    margin:0 auto;
+    padding:60px 24px;
+    position:relative;
+    z-index:1;
+  }
+
+  .titulo-secao{
+    font-family:'Playfair Display', serif;
+    font-size:2rem;
+    color:var(--vinho);
+    text-align:center;
+    margin-bottom:36px;
+  }
+
+  /* carta */
+  .carta{
+    background:var(--creme);
+    border:1px solid var(--rosa-medio);
+    border-radius:4px;
+    padding:44px 38px;
+    box-shadow:0 18px 40px rgba(122,59,78,0.08);
+    position:relative;
+  }
+  .carta::before{
+    content:"";
+    position:absolute;
+    top:14px; left:14px; right:14px; bottom:14px;
+    border:1px solid var(--rosa-claro);
+    pointer-events:none;
+  }
+  .carta p{
+    font-size:1.05rem;
+    line-height:1.9;
+    margin-bottom:18px;
+  }
+  .assinatura{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:1.3rem;
+    color:var(--rosa-escuro);
+    text-align:right;
+    margin-top:10px;
+  }
+
+  /* album de fotos */
+  .album{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+  }
+  @media(min-width:560px){
+    .album{ grid-template-columns:repeat(3,1fr); }
+  }
+
+  .polaroid{
+    background:#fff;
+    padding:12px 12px 30px 12px;
+    box-shadow:0 10px 24px rgba(122,59,78,0.12);
+    transform:rotate(var(--r,0deg));
+    transition:transform .3s ease;
+    text-align:center;
+  }
+  .polaroid:nth-child(1){--r:-4deg;}
+  .polaroid:nth-child(2){--r:3deg;}
+  .polaroid:nth-child(3){--r:-2deg;}
+  .polaroid:nth-child(4){--r:4deg;}
+  .polaroid:nth-child(5){--r:-3deg;}
+  .polaroid:nth-child(6){--r:2deg;}
+  .polaroid:hover{ transform:rotate(0deg) scale(1.04); }
+
+  .polaroid .foto{
+    width:100%;
+    aspect-ratio:1/1;
+    background:linear-gradient(135deg,var(--rosa-claro),var(--rosa-medio));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+    color:var(--vinho);
+  }
+  .polaroid span{
+    display:block;
+    margin-top:10px;
+    font-size:0.85rem;
+    color:var(--texto);
+  }
+
+  /* motivos */
+  .motivos{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .motivos li{
+    background:var(--creme);
+    border-left:3px solid var(--rosa-escuro);
+    padding:16px 20px;
+    font-size:1rem;
+    line-height:1.6;
+    box-shadow:0 6px 16px rgba(122,59,78,0.06);
+  }
+
+  footer{
+    text-align:center;
+    padding:50px 24px 70px;
+    color:var(--rosa-escuro);
+    font-size:0.95rem;
+  }
+  .footer-coracao{ font-size:1.4rem; margin-bottom:8px; }
+
+  /* como editar - aviso discreto */
+  .nota{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 24px 40px;
+    font-size:0.8rem;
+    color:#a98a92;
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<div id="petalas"></div>
+
+<audio id="musica-fundo" loop>
+  <source src="imgs/ytmp3free.cc_daniel-caesar-neu-roses-transgressors-song-youtubemp3free.org.mp3" type="audio/mpeg">
+</audio>
+
+<header>
+    <button id="botao-musica" onclick="alternarMusica()">toque aqui</button>
+  <div class="eyebrow">feito com carinho, só pra você</div>
+  <h1>Toda vez que penso em <em>nós</em>,<br>eu sorrio sozinho</h1>
+  <div class="coracao-central">💕</div>
+</header>
+
+<section>
+  <h2 class="titulo-secao">Nossos momentos</h2>
+  <div class="album">
+    <div class="polaroid"><img class="foto" src="imgs/IMG-20260901-WA0105.jpg"><span></span></div>
+    <div class="polaroid"><img class="foto" src="imgs/IMG-20260904-WA0162.jpg"><span></span></div>
+    <div class="polaroid"><img class="foto" src="imgs/IMG-20260904-WA0163.jpg"><span></span></div>
+    <div class="polaroid"><img class="foto" src="imgs/IMG-20260905-WA0155.jpg"><span></span></div>
+    <div class="polaroid"><img class="foto" src="imgs/039440bba8ef2561bbabf947d8ef67e2_0.jpeg"><span></span></div>
+        <div class="polaroid"><img class="foto" src="C:\Users\oisys\Downloads\940955f954542691cec9610f6b6a4d55_0.jpeg"><span></span></div>
+  </div
+</section>
+
+<section>
+  <h2 class="titulo-secao">Por que eu te amo!</h2>
+  <ul class="motivos">
+    <li>Pelo jeito que você me trata.</li>
+    <li>Pela paciência que você tem cmg.</li>
+    <li>E eu te amo só pelo fato de vc ser vc.</li>
+  </ul>
+</section>
+
+<footer>
+  <div class="footer-coracao">🤍</div>
+  <div>feito com amor, pra sempre seu</div>
+</footer>
+
+<div class="nota">
+  💡 Pra trocar as fotos: procure por "troque por uma foto" no código e substitua a div class="foto" por uma tag &lt;img src="sua-foto.jpg"&gt;. Pra trocar os nomes/textos, é só editar o texto direto no arquivo.
+</div>
+
+<script>
+    function alternarMusica(){
+  const audio = document.getElementById('musica-fundo');
+  const botao = document.getElementById('botao-musica');
+  if(audio.paused){
+    audio.play();
+    botao.textContent = '⏸ pausar nossa música';
+  } else {
+    audio.pause();
+    botao.textContent = 'toque aqui';
+  }
+}
+
+  const container = document.getElementById('petalas');
+  const emojis = ['🌸','💮','❀'];
+  for(let i=0;i<18;i++){
+    const p = document.createElement('div');
+    p.className = 'petala';
+    p.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    p.style.left = Math.random()*100 + 'vw';
+    p.style.animationDuration = (8 + Math.random()*10) + 's';
+    p.style.animationDelay = (Math.random()*10) + 's';
+    p.style.fontSize = (14 + Math.random()*14) + 'px';
+    container.appendChild(p);
+  }
+</script>
+
+</body>
+</html>
+</html>
