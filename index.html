@@ -41,7 +41,6 @@
     overflow-x:hidden;
   }
 
-  /* pétalas caindo */
   .petala{
     position:fixed;
     top:-5%;
@@ -120,7 +119,6 @@
     margin-bottom:36px;
   }
 
-  /* carta */
   .carta{
     background:var(--creme);
     border:1px solid var(--rosa-medio);
@@ -150,7 +148,6 @@
     margin-top:10px;
   }
 
-  /* album de fotos */
   .album{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -185,6 +182,8 @@
     justify-content:center;
     font-size:2rem;
     color:var(--vinho);
+    object-fit:cover;
+    object-position:center;
   }
   .polaroid span{
     display:block;
@@ -193,7 +192,6 @@
     color:var(--texto);
   }
 
-  /* motivos */
   .motivos{
     list-style:none;
     display:flex;
@@ -217,7 +215,6 @@
   }
   .footer-coracao{ font-size:1.4rem; margin-bottom:8px; }
 
-  /* como editar - aviso discreto */
   .nota{
     max-width:760px;
     margin:0 auto;
@@ -233,7 +230,7 @@
 <div id="petalas"></div>
 
 <audio id="musica-fundo" loop>
-  <source src="imgs/ytmp3free.cc_daniel-caesar-neu-roses-transgressors-song-youtubemp3free.org.mp3" type="audio/mpeg">
+  <source src="ytmp3free.cc_daniel-caesar-neu-roses-transgressors-song-youtubemp3free.org.mp3" type="audio/mpeg">
 </audio>
 
 <header>
@@ -246,13 +243,13 @@
 <section>
   <h2 class="titulo-secao">Nossos momentos</h2>
   <div class="album">
-    <div class="polaroid"><img class="foto" src="imgs/IMG-20260901-WA0105.jpg"><span></span></div>
-    <div class="polaroid"><img class="foto" src="imgs/IMG-20260904-WA0162.jpg"><span></span></div>
-    <div class="polaroid"><img class="foto" src="imgs/IMG-20260904-WA0163.jpg"><span></span></div>
-    <div class="polaroid"><img class="foto" src="imgs/IMG-20260905-WA0155.jpg"><span></span></div>
-    <div class="polaroid"><img class="foto" src="imgs/039440bba8ef2561bbabf947d8ef67e2_0.jpeg"><span></span></div>
-        <div class="polaroid"><img class="foto" src="C:\Users\oisys\Downloads\940955f954542691cec9610f6b6a4d55_0.jpeg"><span></span></div>
-  </div
+    <div class="polaroid"><img class="foto" src="IMG-20260901-WA0105.jpg"><span></span></div>
+    <div class="polaroid"><img class="foto" src="IMG-20260904-WA0162.jpg"><span></span></div>
+    <div class="polaroid"><img class="foto" src="IMG-20260904-WA0163.jpg"><span></span></div>
+    <div class="polaroid"><img class="foto" src="IMG-20260905-WA0155.jpg"><span></span></div>
+    <div class="polaroid"><img class="foto" src="foto1.jpeg"><span></span></div>
+    <div class="polaroid"><img class="foto" src="foto6.jpg"><span></span></div>
+  </div>
 </section>
 
 <section>
@@ -268,10 +265,6 @@
   <div class="footer-coracao">🤍</div>
   <div>feito com amor, pra sempre seu</div>
 </footer>
-
-<div class="nota">
-  💡 Pra trocar as fotos: procure por "troque por uma foto" no código e substitua a div class="foto" por uma tag &lt;img src="sua-foto.jpg"&gt;. Pra trocar os nomes/textos, é só editar o texto direto no arquivo.
-</div>
 
 <script>
     function alternarMusica(){
@@ -301,5 +294,4 @@
 </script>
 
 </body>
-</html>
 </html>
